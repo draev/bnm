@@ -1,14 +1,11 @@
 <?php
-namespace Fruitware\Bnm;
-
-use Exception;
+namespace Fruitware\Bnm\Exception;
 
 /**
  * Bnm exception class
  * Class BnmException
  * @package Fruitware\Bnm
  */
-class BnmException extends Exception
+class BnmException extends \Exception
 {
-
 }

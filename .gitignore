@@ -1,6 +1,12 @@
+phpunit.xml
 composer.phar
 composer.lock
 composer-test.lock
 vendor/
-file/
+build/
+artifacts/
+docs/_build
+docs/*.pyc
 .idea
+.DS_STORE
+/files
