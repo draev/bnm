@@ -1,0 +1,24 @@
+{
+    "name": "fruitware/bnm",
+    "type": "library",
+    "license": "MIT",
+
+    "authors": [
+        {
+            "name": "Vladimir Scegoli",
+            "email": "marxx87@gmail.com",
+            "homepage": "https://github.com/sillywiz"
+        }
+    ],
+
+    "autoload": {
+        "psr-4": {
+            "Fruitware\\Bnm\\": "src/"
+        }
+    },
+
+    "require": {
+        "php": ">=5.4.0",
+        "guzzlehttp/guzzle": "~4.0"
+    }
+}
