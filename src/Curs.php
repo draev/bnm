@@ -55,18 +55,22 @@ class Curs
     }
 
     /**
-     * Converts Lei the specified currency
+     * Converts one currency to another withing current rate
      *
-     * @param $currCode
+     * @param $currencyFromCode
      * @param $quantity
+     * @param NULL $currencyToCode
      *
      * @return float
      */
-    public function exchange($currCode, $quantity)
+    public function exchange($currencyFromCode, $quantity, $currencyToCode = NULL)
     {
-        $bnmRate = $this->getRate($currCode);
-
-        return $bnmRate->exchange($quantity);
+        $fromQuantity = $currencyFromCode == 'MDL' ? $quantity : $this->getRate($currencyFromCode)->exchangeFrom($quantity);
+        if (empty($currencyToCode) || $currencyToCode == 'MDL')
+        {
+            return $fromQuantity;
+        }
+        return $this->getRate($currencyToCode)->exchangeTo($fromQuantity);
     }
 
     /**

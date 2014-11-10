@@ -71,15 +71,44 @@ class Rate
     }
 
     /**
-     * @param $quantity string
+     * @call exchangeTo
+     * @param $quantity
+     *
      * @return float
      */
     public function exchange($quantity)
+    {
+        return $this->exchangeTo($quantity);
+    }
+
+    /**
+     * Convert MDL to current currency
+     *
+     * @param $quantity string
+     * @return float
+     */
+    public function exchangeTo($quantity)
     {
         $rate 		=	$this->getValue();
         $nominal 	= 	$this->getNominal();
 
         $result = (double) ( $quantity / $nominal / $rate );
+
+        return $result;
+    }
+
+    /**
+     * Convert current currency to MDL
+     *
+     * @param $quantity string
+     * @return float
+     */
+    public function exchangeFrom($quantity)
+    {
+        $rate 		=	$this->getValue();
+        $nominal 	= 	$this->getNominal();
+
+        $result = (double) ( $quantity * $rate / $nominal );
 
         return $result;
     }
